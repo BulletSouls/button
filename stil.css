@@ -1,0 +1,30 @@
+button{
+  vertical-align: top;
+  width: 120px;
+  height:50px;
+  display:inline;
+}
+
+#dugmad{
+  width:auto;
+  margin-top: 15px;
+}
+
+.neparan{
+  background-color: #9da0a5;
+}
+
+ul li {
+  display:inline;
+  padding:30px;
+}
+
+ul li a {
+  text-decoration: underline;
+  color:black;
+
+}
+
+.active{
+  color:red;
+}

@@ -1,0 +1,70 @@
+<html>
+<head>
+  <title>Efekti tabele</title>
+  <link rel="stylesheet" href="stil.css" tye="text/css">
+  <script type="text/javascript" src="script.js" ></script>
+</head>
+<body>
+        <ul id="zaglavlje">
+                <li><a class="active" href="Pocetna.html">Efekti tabele</a></li>
+                <li><a href="o_aplikaciji.html">O Aplikaciji</a></li>
+        </ul>
+        <table id="Tabela">
+            <tr id="zaglavlje_tabele">
+                <th>Rbr</th>
+                <th>Ime</th>
+                <th>Prezime</th>
+                <th>Škola</th>
+                <th>Poeni</th>
+            </tr>
+            <tr>
+                <td>1.</td>
+                <td>Pera</td>
+                <td>Mikic</td>
+                <td>OŠ “Vuk Karadžić”</td>
+                <td>54</td>
+            </tr>
+            <tr>
+                <td>2.</td>
+                <td>Mika</td>
+                <td>Zikic</td>
+                <td>OŠ “Ivo Andrić”</td>
+                <td>62</td>
+            </tr>
+			      <tr>
+                <td>3.</td>
+                <td>Zika</td>
+                <td>Peric</td>
+                <td>OŠ “Sveti Sava”</td>
+                <td>59</td>
+            </tr>
+            <tr>
+                <td>4.</td>
+                <td>Jojan</td>
+                <td>Bankovic</td>
+                <td>OŠ “Kucevo”</td>
+                <td>43</td>
+            </tr>
+            <tr>
+                <td>5.</td>
+                <td>Damjan</td>
+                <td>Vukajlovic</td>
+                <td>OŠ “Batajnica”</td>
+                <td>98</td>
+            </tr>
+            <tr>
+                <td>6.</td>
+                <td>Marko</td>
+                <td>Mitrovic</td>
+                <td>OŠ “Brestovik”</td>
+                <td>12</td>
+            </tr>
+        </table>
+        <div id="dugmad">
+        <button id="sort" onclick="sort_f()">Sortiraj</button>
+        <button id="oboji" onclick=oboji_f()>Oboji alternativne redove</button>
+        <button id="markiraj_pol" onclick=markpol_f()>Markiraj one koji su polozili</button>
+        <button id="markiraj_npol" onclick=markNpol_f()>Markiraj one koji nisu polozili</button>
+        <button id="izdvoji" onclick=izdvoji_f()>Izdvoj one koji su polozili</button>
+      </div>
+</html>
