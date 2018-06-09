@@ -1,0 +1,14 @@
+<div>
+              <div id="meni">
+                <asp:Button ID="VTelefoni" runat="server" Text="Vazni telefoni" OnClick="VTelefoni_Click" />
+                <asp:Button ID="Imenik" runat="server" Text="Imenik" OnClick="Imenik_Click"  />
+            </div>
+             <div id="start">
+              <p id="title">Korisnicko upustvo</p>
+        </div>
+        <div id="search" class="text">
+            <br />
+            <br />
+            <p style="font-weight:bold;">Pretraga imenika se vrši izborom stavki iz padajuće liste ili unosom u tekstualna polja.Pretraga se može vršiti na osnovu jednog ili više parametara. Nakon klika na dugme traži, ispod polja za pretragu biće prikazani rezultati pretrage.<br /><br /> Ukoliko imate dodatnih pitanja, možete nam se obratiti putem e-mail adrese support@imenik.rs. Nadamo se da smo Vam pomogli!</p>
+        </div>    
+        </div>

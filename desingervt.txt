@@ -1,0 +1,18 @@
+ <div>
+             <div id="meni">
+                <asp:Button ID="Imenik" runat="server" Text="Imenik" OnClick="Imenik_Click"  />
+                <asp:Button ID="KUputstvo" runat="server" Text="Korisnicko uputstvo" OnClick="KUputstvo_Click" />
+            </div>
+
+            <div id="start">
+              <p id="title">Važni telefoni</p>
+        </div>
+        <div id="search" class="text" >
+            <p style="text-align:center;font-size:30px;font-weight:bold;color:darkblue;">POLICIJA 192</p>  
+            <p style="text-align:center;font-size:30px;font-weight:bold;color:darkred;">VATROGASCI 193</p>
+            <p style="text-align:center;font-size:30px;font-weight:bold;color:darkblue;">HITNA POMOĆ 194</p>
+            <p style="text-align:center;font-size:30px;font-weight:bold;color:darkred;">TAČNO VREME 195</p>  
+            <p style="text-align:center;font-size:30px;font-weight:bold;color:darkblue;">POMOĆ NA PUTU 1987</p>
+
+        </div>  
+        </div>

@@ -1,0 +1,61 @@
+        <link rel="Stylesheet" href="styles.css" type="text/css" />
+
+		<div>
+            <div id="meni">
+                <asp:Button ID="VTelefoni" runat="server" Text="Vazni telefoni" OnClick="VTelefoni_Click" />
+                <asp:Button ID="KUputstvo" runat="server" Text="Korisnicko uputstvo" OnClick="KUputstvo_Click" />
+            </div>
+            <div id="start">
+                <p id="title">Telefonski imenik</p>
+            </div>
+            <div id="search">
+                <p id="subtitle"><i>PRETRAGA</i></p>
+                <div id="param">
+
+                    <asp:Label ID="lbime" CssClass="text" runat="server" Text="Ime:"></asp:Label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <asp:TextBox ID="tbime" runat="server"></asp:TextBox>
+                    <br />
+                    <br />
+
+                    <asp:Label ID="lbprezime" CssClass="text" runat="server" Text="Prezime:"></asp:Label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;
+        <asp:TextBox ID="tbprezime" runat="server"></asp:TextBox>
+                    <br />
+                    <br />
+
+                    <asp:Label ID="lbadresa" CssClass="text" runat="server" Text="Adresa:"></asp:Label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <asp:TextBox ID="tbadresa" runat="server"></asp:TextBox>
+                    <br />
+                    <br />
+
+
+                    <asp:Label ID="lbmesto" CssClass="text" runat="server" Text="Mesto:"></asp:Label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <asp:DropDownList ID="ddlmesto" runat="server" Height="25px" CssClass="text" AppendDataBoundItems="true" AutoPostBack="true">
+            <asp:ListItem Value="0">---Izaberi mesto---</asp:ListItem>
+            <asp:ListItem Value="Beograd">Beograd</asp:ListItem>
+            <asp:ListItem Value="Subotica">Subotica</asp:ListItem>
+            <asp:ListItem Value="Novi Sad">Novi Sad</asp:ListItem>
+            <asp:ListItem Value="Beocin">Beocin</asp:ListItem>
+        </asp:DropDownList>
+                    <br />
+                    <br />
+
+                    <asp:Label ID="brtel" CssClass="text" runat="server" Text="Broj telefona:"></asp:Label>&nbsp;&nbsp;&nbsp;&nbsp;
+        <asp:TextBox ID="tbtelefon" runat="server"></asp:TextBox>
+                    <br />
+                    <br />
+
+
+
+
+                    <asp:Button ID="Pretraga" runat="server" Text="Pretraga" OnClick="Pretraga_Click" />
+
+                    <br />
+                    <br />
+                </div>
+                <br />
+                <br />
+                <div id="lista">
+                    <asp:GridView ID="GridView1" CssClass="prikaz mydatagrid" BackColor="White" PagerStyle-CssClass="pager" HeaderStyle-CssClass="header" RowStyle-CssClass="rows" AllowPaging="True" runat="server" RowStyle-Wrap="False"></asp:GridView>
+                </div>
+            </div>
+        </div>
