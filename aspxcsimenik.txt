@@ -1,0 +1,184 @@
+using System.IO;
+using System.Data;
+
+namespace TelefonskiImenik
+{
+    public class Korisnik
+    {
+        public int Sifra { get; set; }
+        public string Ime { get; set; }
+        public string Prezime { get; set; }
+        public string Adresa { get; set; }
+        public string Mesto { get; set; }
+        public string BrojTelefona { get; set; }
+
+        public string Email { get; set; }
+    }
+
+
+    public partial class Imenik : System.Web.UI.Page
+    {
+        List<Korisnik> imenik = new List<Korisnik>();
+        List<Korisnik> imenikcopy = new List<Korisnik>();
+
+        protected void Page_Load(object sender, EventArgs e)
+        {
+            StreamReader sr = new StreamReader(HttpContext.Current.Request.PhysicalApplicationPath + "imenik.txt");
+            while (!sr.EndOfStream)
+            {
+                Korisnik korisnik = new Korisnik();
+                string tmp;
+                string[] parts;
+                tmp = sr.ReadLine();
+                parts = tmp.Split('|');
+                korisnik.Sifra = Convert.ToInt32(parts[0]);
+                korisnik.Ime = parts[1];
+                korisnik.Prezime = parts[2];
+                korisnik.Adresa = parts[3];
+                korisnik.Mesto = parts[4];
+                korisnik.BrojTelefona = parts[5];
+                korisnik.Email = parts[6];
+                imenik.Add(korisnik);
+            }
+        }
+
+        protected void Pretraga_Click(object sender, EventArgs e)
+        {
+            int brojac = 0;
+            imenikcopy = imenik;
+            Korisnik tmp = new Korisnik();
+            int imed, prezd, adresad, mestod, brt, brojk;
+            bool ukloni = false;
+            tmp.Ime = tbime.Text;
+            tmp.Prezime = tbprezime.Text;
+            tmp.Adresa = tbadresa.Text;
+            tmp.Mesto = ddlmesto.Text;
+            tmp.BrojTelefona = tbtelefon.Text;
+            imed = tmp.Ime.Length;
+            prezd = tmp.Prezime.Length;
+            adresad = tmp.Adresa.Length;
+            mestod = tmp.Mesto.Length;
+            brt = tmp.BrojTelefona.Length;
+            brojk = imenikcopy.Count;
+            for (; brojac < brojk; brojac++)
+            {
+                Korisnik pom = new Korisnik();
+                pom = imenikcopy[brojac];
+                if (imed != 0)
+                {
+                    try
+                    {
+                        string s1 = pom.Ime.Substring(0, imed);
+                        if (tmp.Ime.CompareTo(s1) != 0)
+                        {
+                            ukloni = true;
+                        }
+                    }
+                    catch
+                    {
+                        ukloni = true;
+                    }
+
+                }
+                if (prezd != 0 && ukloni != true)
+                {
+                    try
+                    {
+                        string s1 = pom.Prezime.Substring(0, prezd);
+                        if (tmp.Prezime.CompareTo(s1) != 0)
+                        {
+                            ukloni = true;
+                        }
+                    }
+                    catch
+                    {
+                        ukloni = true;
+                    }
+
+                }
+                if (adresad != 0 && ukloni != true)
+                {
+                    try
+                    {
+                        string s1 = pom.Adresa.Substring(0, adresad);
+                        if (tmp.Adresa.CompareTo(s1) != 0)
+                        {
+                            ukloni = true;
+                        }
+                    }
+                    catch
+                    {
+                        ukloni = true;
+                    }
+
+                }
+                if (ddlmesto.SelectedValue != "0" && ukloni != true)
+                {
+                    string s1 = pom.Mesto;
+                    if (tmp.Mesto.CompareTo(s1) != 0)
+                    {
+                        ukloni = true;
+                    }
+
+                }
+                if (brt != 0 && ukloni != true)
+                {
+                    try
+                    {
+                        string s1 = pom.BrojTelefona.Substring(0, brt);
+                        if (tmp.BrojTelefona.CompareTo(s1) != 0)
+                        {
+                            ukloni = true;
+
+                        }
+                    }
+                    catch
+                    {
+                        ukloni = true;
+                    }
+                }
+                if (ukloni == true)
+                {
+                    imenikcopy.RemoveAt(brojac);
+                    brojac--;
+                    brojk--;
+                }
+                ukloni = false;
+            }
+            NapraviDataSet();
+
+        }
+        private void NapraviDataSet()
+        {
+            DataSet ds = new DataSet();
+            DataTable dt = new DataTable("Imenik");
+            dt.Columns.Add("Sifra", typeof(System.Int32));
+            dt.Columns.Add("Ime", typeof(System.String));
+            dt.Columns.Add("Prezime", typeof(System.String));
+            dt.Columns.Add("Adresa", typeof(System.String));
+            dt.Columns.Add("Mesto", typeof(System.String));
+            dt.Columns.Add("Broj telefona", typeof(System.String));
+            dt.Columns.Add("Email", typeof(System.String));
+            for (int i = 0; i < imenikcopy.Count; i++)
+            {
+                dt.Rows.Add(new object[] { imenikcopy[i].Sifra, imenikcopy[i].Ime, imenikcopy[i].Prezime, imenikcopy[i].Adresa, imenikcopy[i].Mesto, imenikcopy[i].BrojTelefona, imenikcopy[i].Email });
+            }
+            ds.Tables.Add(dt);
+            GridView1.DataSource = ds;
+            GridView1.DataBind();
+            GridView1.Visible = true;
+        }
+
+        protected void VTelefoni_Click(object sender, EventArgs e)
+        {
+            Server.Transfer("VazniTelefoni.aspx");
+
+        }
+
+        protected void KUputstvo_Click(object sender, EventArgs e)
+        {
+            Server.Transfer("KorisnickoUputstvo.aspx");
+
+        }
+    }
+}

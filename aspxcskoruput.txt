@@ -1,0 +1,7 @@
+//button VT
+
+            Server.Transfer("VazniTelefoni.aspx");
+
+//button I
+
+            Server.Transfer("Imenik.aspx");
