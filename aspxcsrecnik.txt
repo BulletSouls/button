@@ -1,0 +1,70 @@
+using System.Configuration;
+using System.Data;
+using System.Data.SqlClient;
+
+//pageload
+            Label1.Text = Label2.Text = "";
+
+//button2
+
+            Response.Redirect("Dodavanjereci.aspx");
+
+//button1
+
+ string rec = TextBox1.Text;
+            string tekst = Label2.Text;
+            
+            int a = 0;
+            if (DropDownList1.SelectedValue=="srpsko-engleski")
+            {
+                SqlConnection con = new SqlConnection(ConfigurationManager.ConnectionStrings["ConnectionString"].ToString());
+                con.Open();
+               
+                    string query = "select * from tabela1 where Srpski='" + TextBox1.Text + "'";
+                    SqlCommand cmd = new SqlCommand(query, con);
+                   // string output = cmd.ExecuteScalar().ToString();
+                    SqlDataReader rider1;
+                    rider1 = cmd.ExecuteReader();
+         
+
+                    while (rider1.Read())
+                    {
+                        
+                        Label1.Text = rider1[1].ToString();
+                        Label2.Text = rider1[3].ToString();
+                        a++;
+                    }
+                    if (a == 0)
+                    {
+                        Label2.Text = "Nema reci";
+                        Label1.Text = "";
+                    }
+                    con.Close();
+            }
+            else
+            {
+                SqlConnection con = new SqlConnection(ConfigurationManager.ConnectionStrings["ConnectionString"].ToString());
+                con.Open();
+
+                string query = "select * from tabela1 where Engleski='" + TextBox1.Text + "'";
+                SqlCommand cmd = new SqlCommand(query, con);
+                // string output = cmd.ExecuteScalar().ToString();
+                SqlDataReader rider1;
+                rider1 = cmd.ExecuteReader();
+
+
+                while (rider1.Read())
+                {
+
+                    Label1.Text = rider1[2].ToString();
+                    Label2.Text = rider1[3].ToString();
+                    a++;
+                }
+                if (a == 0)
+                {
+                    Label2.Text = "Nema reci";
+                    Label1.Text = "";
+                }
+                con.Close();
+            }
+        

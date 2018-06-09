@@ -1,0 +1,30 @@
+    <link rel="stylesheet" href="StyleSheet1.css" type="text/css" />
+
+	<div>
+        &nbsp;
+        <asp:Label ID="Label3" runat="server" Text="Izaberi smer prevodjenja"></asp:Label>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <asp:Label ID="Label4" runat="server" Text="Unesi rec za prevodjenje"></asp:Label>
+        <br />
+        <asp:DropDownList ID="DropDownList1" runat="server" Height="16px" Width="159px" AutoPostBack="True">
+            <asp:ListItem>srpsko-engleski</asp:ListItem>
+            <asp:ListItem>englesko-srpski</asp:ListItem>
+        </asp:DropDownList>
+
+    &nbsp;&nbsp;&nbsp;
+        <asp:TextBox ID="TextBox1" runat="server" Width="163px"></asp:TextBox>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <asp:Label ID="Label1" runat="server" Text="Label"></asp:Label>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <asp:Label ID="Label2" runat="server" Text="Label"></asp:Label>
+        <br />
+        <br />
+
+    </div>
+        <asp:Button ID="Button1" runat="server" Text="Prevedi" Width="196px" OnClick="Button1_Click" />
+        <br />
+        <br />
+        <asp:Button ID="Button2" runat="server" Text="Prelaz na drugu stranu" OnClick="Button2_Click" style="height: 26px; width: 197px" />
+        <br />
+        <br />
+        <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:ConnectionString %>" SelectCommand="SELECT * FROM [tabela1]"></asp:SqlDataSource>
