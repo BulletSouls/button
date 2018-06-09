@@ -1,0 +1,45 @@
+using System.Configuration;
+using System.Data;
+using System.Data.SqlClient;
+
+//button2
+            Response.Redirect("Recnik.aspx");
+
+//button1
+			SqlConnection con = new SqlConnection(ConfigurationManager.ConnectionStrings["ConnectionString"].ToString());
+            con.Open();
+            int k=0;
+            SqlDataAdapter adapter = new SqlDataAdapter();
+            SqlCommand komanda1 = new SqlCommand("Select * from tabela1", con);
+            DataTable tabela = new DataTable();
+            adapter.SelectCommand = komanda1;
+            adapter.Fill(tabela);
+            k = tabela.Rows.Count + 1;
+            string s1, s2, s3;
+            s1 = TextBox1.Text;
+            s2 = TextBox2.Text;
+            s3 = TextBox3.Text;
+            if (s1 != "" && s2 != "")
+            {
+                try
+                {
+                    string upit = "INSERT INTO [tabela1] ([Engleski],[Srpski],[Opis]) VALUES(@Engleski,@Srpski,@Opis)";
+                    SqlCommand komanda = new SqlCommand(upit, con);
+                    //komanda.Parameters.AddWithValue("@Id", k);
+                    komanda.Parameters.AddWithValue("@Engleski", s1);
+                    komanda.Parameters.AddWithValue("@Srpski", s2);
+                    if (s3 != "")
+                        komanda.Parameters.AddWithValue("@Opis", s3);
+                    else komanda.Parameters.AddWithValue("@Opis", DBNull.Value);
+
+                    komanda.ExecuteNonQuery();
+                    TextBox1.Text = TextBox2.Text = TextBox3.Text = "";
+                    Label4.Font.Size = 40;
+                    Label4.Text = "Uspesno ste upisali rec u recnik!";
+
+                }
+                catch
+                {
+                    Label4.Text = "Ne mozete upisati ovaj podatak";
+                }
+            }

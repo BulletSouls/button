@@ -1,0 +1,21 @@
+        <link rel="stylesheet" href="StyleSheet1.css" type="text/css" />
+
+		
+		 <asp:Label ID="Label1" runat="server" Text="Engleski"></asp:Label>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <asp:Label ID="Label2" runat="server" Text="Srpski"></asp:Label>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <asp:Label ID="Label3" runat="server" Text="Opis"></asp:Label>
+
+        <br />
+        <asp:TextBox ID="TextBox1" runat="server"></asp:TextBox>
+        <asp:TextBox ID="TextBox2" runat="server"></asp:TextBox>
+        <asp:TextBox ID="TextBox3" runat="server"></asp:TextBox>
+        <br />
+        <br />
+
+        <asp:Button ID="Button1" runat="server" Text="Snimi" Height="49px" OnClick="Button1_Click" Width="102px" />
+        <br />
+        <asp:Button ID="Button2" runat="server" Text="Prelaz na prvu stranu" OnClick="Button2_Click" />
+        <br />
+        <asp:Label ID="Label4" runat="server" Text="Label" Height="100px" Width="198px"></asp:Label>
