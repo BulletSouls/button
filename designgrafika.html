@@ -1,0 +1,25 @@
+    <link rel="stylesheet" href="Stilovi.css" type="text/css" />
+
+	//body
+	 <a href="Pocetna.aspx">Pocetna</a>
+    <a id="drugi" href="O autoru.aspx">O autoru</a>
+    <br /><br />
+	
+	//form
+	 <asp:SqlDataSource ID="sql1" runat="server" ConnectionString="<%$ ConnectionStrings:ConnectionString %>" SelectCommand="SELECT [Razred], [ProsOcena] FROM [Uspeh]"></asp:SqlDataSource>
+    <div>
+        <asp:Chart ID="Chart1" runat="server" DataSourceID="sql1" >
+            <Series>
+                <asp:Series Name="Series1" XValueMember="Razred" YValueMembers="ProsOcena"></asp:Series>
+                <%--<asp:Series Name="Series2"></asp:Series>
+                <asp:Series Name="Series3"></asp:Series>
+                <asp:Series Name="Series4"></asp:Series>
+                <asp:Series Name="Series5"></asp:Series>
+                <asp:Series Name="Series6"></asp:Series>
+                <asp:Series Name="Series7"></asp:Series>
+                <asp:Series Name="Series8"></asp:Series>--%>
+            </Series>
+            <ChartAreas>
+                <asp:ChartArea Name="ChartArea1"></asp:ChartArea>
+            </ChartAreas>
+        </asp:Chart>

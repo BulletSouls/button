@@ -1,0 +1,13 @@
+    <link rel="stylesheet" href="Stilovi.css" type="text/css"/>
+	
+	//body
+	<a href="Grafika.aspx">Grafika</a>
+    <a id="drugi" href="O autoru.aspx">O autoru</a>
+    <br /><br />
+	
+	//form
+	 <div>
+    <asp:SqlDataSource id="sql1" runat="server" ConnectionString="<%$ ConnectionStrings:ConnectionString %>" SelectCommand="SELECT * FROM [Uspeh] ORDER BY [ProsOcena] DESC"></asp:SqlDataSource>
+    <asp:GridView ID="grid1" runat="server" DataSourceID="sql1"></asp:GridView>
+    </div>
+	

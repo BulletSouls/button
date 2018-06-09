@@ -1,0 +1,18 @@
+﻿body {
+    background-color:#ff4d4d;
+    color:white;
+}
+
+
+a{
+    text-decoration:none;
+    color:white;
+    padding:5px;
+    border:2px solid white;
+  
+
+}
+
+#drugi{
+    margin-left:20px;
+}
