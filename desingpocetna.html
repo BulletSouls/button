@@ -1,0 +1,13 @@
+ <link href="Stil.css" rel="stylesheet" type="text/css" /> 
+ <div>
+      <div class="foreclass">
+    <h2>Login page</h2>
+        <asp:TextBox ID="txtuser" CssClass="input" placeholder="User Name" runat="server"></asp:TextBox>
+        <asp:TextBox ID="txtpass" CssClass="input" placeholder="Password" TextMode="Password" runat="server"></asp:TextBox><br/><br />
+        <asp:Button ID="btnlogin"  CssClass="input" Width="100%" Text="Log In" runat="server" OnClick="btnlogin_Click" />
+    </div>
+        <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:ConnectionString %>" SelectCommand="SELECT * FROM [Korisnici]"></asp:SqlDataSource>
+        <center>
+            <asp:Label ID="lblPoruka" runat="server" Font-Bold="true" Font-Size="Larger" ForeColor="Black"></asp:Label>
+        </center>
+    </div>
